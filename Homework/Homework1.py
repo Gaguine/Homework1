@@ -1,0 +1,130 @@
+"""
+Упражнение 0
+
+Вам даны списки names и tabs.
+Эти списки содержат фамилии сотрудников (names) и их табельные номера (tabs). Напишите программу, которая выведет на
+экран список пар имя номер, записанных в один строковый объект через пробел.
+"""
+def name_tab_creator(names : list, tabs : list):
+    name_tab = []
+    for name, tab in zip(names,tabs):
+        name_tab.append(f"{name} {tab}")
+    print(name_tab)
+
+"""
+Упражнение 1
+На вход дан список digits. Напишите код, который выводит на экран отсортированный по возрастанию список квадратов
+ элементов digits.
+"""
+def num_sort(digits: list):
+    new_list = []
+    for number in digits:
+        number = number**2
+        new_list.append(number)
+    sorted_digits = sorted(new_list)
+    print(sorted_digits)
+
+"""
+Упражнение 2
+Дан кортеж tpl.
+Напишите код, который выведет на экран последний элемент кортежа tpl.
+
+Sample input: tpl = (1, 2, 3, 4)
+Sample output: 4
+"""
+def last_element_tpl(x:tuple):
+    print(x[-1])
+
+"""
+Упражнение 3
+С помощью какой операции можно заменить последний элемент кортежа tpl = (1, 2, 3) на 4?
+
+ОТВЕТ: Пайтон не может менять елементы кортежей также как со списками. Однако. можно полностью "переписать" кортеж tpl.
+tpl = (1,2,3)
+tpl = (1,2,4)
+print(tpl)
+
+(1, 2, 4)
+"""
+
+"""
+Упражнение 4
+С помощью функции .split() получите список из строки 'hello kitty' и возьмите два последних элемента. В качестве
+ ответа введите результат вывода.
+ 
+ОТВЕТ:
+x = 'hello kitty'
+x_list = x.split()
+print(x_list)
+
+['hello', 'kitty']
+"""
+
+"""
+Упражнение 5
+Даны две строки: s1 и s2.
+Напишите программу, которая выведет на экран количество уникальных символов, встречающихся в обеих строках.
+
+Sample input: s1 = 'abcdabcd', s2 = 'cdcdef'
+Sample output: 2
+
+"""
+def unique_letter_counter_using_list(s1 : str, s2 : str):
+    phantom_list_1 = []
+    phantom_list_2 = []
+    letter_count = 0
+    for letter in s1:
+        if letter not in phantom_list_1:
+            phantom_list_1.append(letter)
+    for letter in s2:
+        if letter not in phantom_list_2:
+            phantom_list_2.append(letter)
+    for letter1 in phantom_list_1:
+        for letter2 in phantom_list_2:
+            if letter1 == letter2:
+                letter_count += 1
+    print(letter_count)
+def unique_letter_counter_using_set(s1 : str, s2:str):
+    count = 0
+    unique_set_1 = set(s1)
+    unique_set_2 = set(s2)
+    for letter1 in unique_set_1:
+        for letter2 in unique_set_2:
+            if letter1 == letter2:
+                count += 1
+    print(count)
+def unique_letter_counter_using_args(*args : str):
+    """ Фунция выводит на экран количество уникальных символов, встречающихся в строках (от двух и блоее) """
+    if len(args) < 2:
+        print("напишите не менее двух строк.")
+    common_letters = set(args[0])
+    for arg in args[1:]:
+        common_letters = common_letters & set(arg)
+    print(len(common_letters))
+
+"""
+Упражнение 6*
+
+Прочитайте статью "*args и **kwargs"
+https://pavel-karateev.gitbook.io/intermediate-python/sintaksis/args_and_kwargs
+
+Если мы хотим использовать  *args, **kwargs и формальные параметры в функции, какой будет порядок? А если будут
+ параметры со значениями по умолчанию?
+
+Напишите функцию print_lists. Она принимает набор порядковых аргументов, каждый из которых является списком. Затем
+ следует аргумент how (по умолчанию None), в который передаются аргументы с правилами для печати (например,  sep и end).
+ Если правила не переданы, следует напечатать списки с sep=' ' и end='\n'.
+"""
+def print_lists(args : list, how : None):
+
+# letter_list = []
+# count = 0
+# for letter in s1 + s2:
+#     letter_list.append(letter)
+#
+# letter_list.sort()
+# for i,letter in enumerate(letter_list):
+#     if letter_list[i] != letter[i+1]:
+#         count = count+1
+# print(letter_list)
+# print(count)
