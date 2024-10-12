@@ -128,19 +128,14 @@ A shift on s consists of moving the leftmost character of s to the rightmost pos
 For example, if s = "abcde", then it will be "bcdea" after one shift.
 """
 def string_checker(s : str, goal : str):
-    if len(s) == len(goal):
-        if s == goal: True
+    # if len(s) == len(goal):
+    if s == goal: True
 
-    else:
-        False
+    return False
 
 s = "abcde"
 goal = "cdeab"
-if len(s) == len(goal):
-    if s == goal: True
-
-else: False
-
+print(string_checker(s,goal))
 
 # letter_list = []
 # count = 0
