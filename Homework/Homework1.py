@@ -131,16 +131,22 @@ def str_flipper(s : str, goal : str):
     """кажется я понял задание по-своему((((. стоит превраить s и goal в листы и создать луп."""
     s_list = []
     goal_list = []
+    count = 0
+    if s == goal:
+        return True
     for s_letter in s:
         s_list.append(s_letter)
     for goal_letter in goal:
         goal_list.append(goal_letter)
 
-    if s_list != goal_list:
+    while s_list != goal_list:
         s_letter = s_list.pop(0)
         s_list.append(s_letter)
-        return True
-
+        if s_list == goal_list:
+            return True
+        count += 1
+        if count == len(s_list):
+            return False
 
 s = "abcde"
 goal = "cdeab"
