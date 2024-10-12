@@ -148,8 +148,5 @@ def str_flipper(s : str, goal : str):
         if count == len(s_list):
             return False
 
-s = "abc"
-goal = "cab"
-print(str_flipper(s,goal))
 
 
