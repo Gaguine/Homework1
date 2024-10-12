@@ -127,25 +127,18 @@ https://pavel-karateev.gitbook.io/intermediate-python/sintaksis/args_and_kwargs
 A shift on s consists of moving the leftmost character of s to the rightmost position.
 For example, if s = "abcde", then it will be "bcdea" after one shift.
 """
+def str_checker(s : str, goal : str):
+    count = 0
+    if len(s) == len(goal):
+        for s_letter in s:
+            for goal_letter in goal:
+                if s_letter == goal_letter:
+                    count += 1
+    else:
+        return False
+    return True
 s = "abcde"
-s_list = []
 goal = "cdeab"
-goal_list = []
-for s_letter in s:
-    s_list.append(s_letter)
-for goal_letter in goal:
-    goal_list.append(goal_letter)
-print(s_list,goal_list)
 
 
-# letter_list = []
-# count = 0
-# for letter in s1 + s2:
-#     letter_list.append(letter)
-#
-# letter_list.sort()
-# for i,letter in enumerate(letter_list):
-#     if letter_list[i] != letter[i+1]:
-#         count = count+1
-# print(letter_list)
-# print(count)
+
