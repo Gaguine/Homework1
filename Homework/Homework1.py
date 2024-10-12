@@ -129,15 +129,20 @@ For example, if s = "abcde", then it will be "bcdea" after one shift.
 """
 def str_checker(s : str, goal : str):
     """кажется я понял задание по-своему((((. стоит превраить s и goal в листы и создать луп."""
-    count = 0
+    s
+    for s_letter in s:
+        s_list.append(s_letter)
+
+
     if len(s) == len(goal):
-        for s_letter in s:
-            for goal_letter in goal:
-                if s_letter == goal_letter:
-                    count += 1
-    else:
-        return False
-    return True
+        while s != goal:
+
+                for goal_letter in goal:
+                    if s_letter == goal_letter:
+
+        else:
+            return False
+        return True
 
 
 s = "abcde"
