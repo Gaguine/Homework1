@@ -137,8 +137,10 @@ def str_checker(s : str, goal : str):
     else:
         return False
     return True
+
+
 s = "abcde"
 goal = "cdeab"
-
+print(str_checker(s,goal))
 
 
