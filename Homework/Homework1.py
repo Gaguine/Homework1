@@ -117,6 +117,7 @@ https://pavel-karateev.gitbook.io/intermediate-python/sintaksis/args_and_kwargs
 """
 def print_lists(args : list, how : None):
 
+
 # letter_list = []
 # count = 0
 # for letter in s1 + s2:
