@@ -115,7 +115,31 @@ https://pavel-karateev.gitbook.io/intermediate-python/sintaksis/args_and_kwargs
  следует аргумент how (по умолчанию None), в который передаются аргументы с правилами для печати (например,  sep и end).
  Если правила не переданы, следует напечатать списки с sep=' ' и end='\n'.
 """
-def print_lists(args : list, how : None):
+# def print_lists(args : list, how : None):
+
+
+
+
+
+"""
+     Task 1. 796. Rotate String
+     Given two strings s and goal, return true if and only if s can become goal after some number of shifts on s.
+A shift on s consists of moving the leftmost character of s to the rightmost position.
+For example, if s = "abcde", then it will be "bcdea" after one shift.
+"""
+def string_checker(s : str, goal : str):
+    if len(s) == len(goal):
+        if s == goal: True
+
+    else:
+        False
+
+s = "abcde"
+goal = "cdeab"
+if len(s) == len(goal):
+    if s == goal: True
+
+else: False
 
 
 # letter_list = []
