@@ -148,8 +148,8 @@ def str_flipper(s : str, goal : str):
         if count == len(s_list):
             return False
 
-s = "abcde"
-goal = "cdeab"
+s = "abc"
+goal = "cab"
 print(str_flipper(s,goal))
 
 
