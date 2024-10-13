@@ -175,7 +175,3 @@ def prefix_checker(sentence: str, searchWord: str):
     if count == 0:
         return str(-1) # using count we intinerate how many times the if condition worked(if any prefix was found). If none occured we should output "-1".
     return str(list_index[0]) # trasform index into str, so it looks nice.
-
-sentence = "I love hamburgers with hamburgers."
-searchWord = "ham"
-print(prefix_checker(sentence,searchWord))
