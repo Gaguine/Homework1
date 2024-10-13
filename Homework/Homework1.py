@@ -1,3 +1,5 @@
+import random
+
 """
 Упражнение 0
 
@@ -5,7 +7,6 @@
 Эти списки содержат фамилии сотрудников (names) и их табельные номера (tabs). Напишите программу, которая выведет на
 экран список пар имя номер, записанных в один строковый объект через пробел.
 """
-import random
 
 
 def name_tab_creator(names : list, tabs : list):
@@ -201,5 +202,11 @@ while password_length != len(password):
     password += lower_cas_letter
     password += symbol
     password += str(number)
+
+password_list = list(password)
+random.shuffle(password_list)
+password = ""
+for x in password_list:
+    password += x
 print(password_length)
 print(password)
