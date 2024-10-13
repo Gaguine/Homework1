@@ -161,6 +161,7 @@ searchWord = "ham"
 sentence_list = []
 check_word = ""
 count = 0
+list_index = []
 for word in sentence: # Extract word from the strip sentence
     if word == " ":
         sentence_list.append(check_word)
@@ -171,10 +172,10 @@ for word in sentence: # Extract word from the strip sentence
 for i, word in enumerate(sentence_list):
     prefix_in_sentence = (word[0 : len(searchWord)]) # compare the first letters(given by the number of letters in check_word) of a word to the check_word.
     if prefix_in_sentence == searchWord:
-        print([i+1])
+        list_index.append([i+1]) # use a list to store the indexes of the words where the prefix occured, return the first item of this list as metioned in the exercise.
         count =+ 1
 if count == 0:
-    print('false')
+    print('false') # using count we intinerate how many times the if condition worked(if any prefix was found). If none occured we should output "-1".
 
 
 
