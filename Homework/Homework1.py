@@ -5,6 +5,9 @@
 Эти списки содержат фамилии сотрудников (names) и их табельные номера (tabs). Напишите программу, которая выведет на
 экран список пар имя номер, записанных в один строковый объект через пробел.
 """
+import random
+
+
 def name_tab_creator(names : list, tabs : list):
     name_tab = []
     for name, tab in zip(names,tabs):
@@ -175,3 +178,28 @@ def prefix_checker(sentence: str, searchWord: str):
     if count == 0:
         return str(-1) # using count we intinerate how many times the if condition worked(if any prefix was found). If none occured we should output "-1".
     return str(list_index[0]) # trasform index into str, so it looks nice.
+
+"""
+Task 3. Password Generator
+['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+Напишите генератор паролей. Хороший пароль должен содержать.
+* строчные буквы
+* заглавные буквы
+* цифры
+* символы
+"""
+password_length = int(input("Длина вашего пароля: ")) # определяем длину пароля
+password = ""
+while password_length != len(password):
+    cap_letter = random.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    lower_cas_letter = random.choice("abcdefghijklmnopqrstuvwxyz")
+    symbol = random.choice("~!@#$%^&*")
+    number = random.randrange(10)
+
+    password += cap_letter
+    password += lower_cas_letter
+    password += symbol
+    password += str(number)
+print(password_length)
+print(password)
