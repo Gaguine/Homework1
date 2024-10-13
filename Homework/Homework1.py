@@ -1,3 +1,5 @@
+import random
+
 """
 Упражнение 0
 
@@ -5,6 +7,8 @@
 Эти списки содержат фамилии сотрудников (names) и их табельные номера (tabs). Напишите программу, которая выведет на
 экран список пар имя номер, записанных в один строковый объект через пробел.
 """
+
+
 def name_tab_creator(names : list, tabs : list):
     name_tab = []
     for name, tab in zip(names,tabs):
@@ -148,8 +152,61 @@ def str_flipper(s : str, goal : str):
         if count == len(s_list):
             return False
 
-s = "abc"
-goal = "cab"
-print(str_flipper(s,goal))
+"""
+    Task 2. Check If a Word Occurs As a Prefix of Any Word in a Sentence
+    Given a sentence that consists of some words separated by a single space, and a searchWord, check if searchWord is 
+    a prefix of any word in sentence.
+    Return the index of the word in sentence (1-indexed) where searchWord is a prefix of this word. If searchWord is a 
+    prefix of more than one word, return the index of the first word (minimum index). If there is no such word return -1.
+    A prefix of a string s is any leading contiguous substring of s
+"""
+def prefix_checker(sentence: str, searchWord: str):
+    sentence_list = []
+    check_word = ""
+    count = 0
+    list_index = []
+    for word in sentence:  # Extract word from the string "sentence" and save the words in a list.
+        if word == " ":
+            sentence_list.append(check_word)
+            check_word = "" # Refresh the variable.
+        else:
+            check_word += word
+    for i, word in enumerate(sentence_list):
+        prefix_in_sentence = (word[0: len(searchWord)])  # compare the first letters(given by the number of letters in check_word) of a word to the check_word.
+        if prefix_in_sentence == searchWord:
+            list_index.append([i + 1])  # use a list to store the indexes of the words where the prefix occured, return the first item of this list as metioned in the exercise.
+            count = + 1
+    if count == 0:
+        return str(-1) # using count we intinerate how many times the if condition worked(if any prefix was found). If none occured we should output "-1".
+    return str(list_index[0]) # trasform index into str, so it looks nice.
 
+"""
+Task 3. Password Generator
+['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+Напишите генератор паролей. Хороший пароль должен содержать.
+* строчные буквы
+* заглавные буквы
+* цифры
+* символы
+"""
+password_length = int(input("Длина вашего пароля: ")) # определяем длину пароля
+password = ""
+while password_length != len(password):
+    cap_letter = random.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    lower_cas_letter = random.choice("abcdefghijklmnopqrstuvwxyz")
+    symbol = random.choice("~!@#$%^&*")
+    number = random.randrange(10)
 
+    password += cap_letter
+    password += lower_cas_letter
+    password += symbol
+    password += str(number)
+
+password_list = list(password)
+random.shuffle(password_list)
+password = ""
+for x in password_list:
+    password += x
+print(password_length)
+print(password)
