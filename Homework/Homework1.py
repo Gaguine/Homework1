@@ -160,14 +160,21 @@ sentence = "I love hamburgers with cheese."
 searchWord = "ham"
 sentence_list = []
 check_word = ""
-for word in sentence:
+count = 0
+for word in sentence: # Extract word from the strip sentence
     if word == " ":
         sentence_list.append(check_word)
         check_word = ""
     else:
         check_word += word
 
-
+for i, word in enumerate(sentence_list):
+    prefix_in_sentence = (word[0 : len(searchWord)]) # compare the first letters(given by the number of letters in check_word) of a word to the check_word.
+    if prefix_in_sentence == searchWord:
+        print([i+1])
+        count =+ 1
+if count == 0:
+    print('false')
 
 
 
