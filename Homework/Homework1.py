@@ -114,12 +114,23 @@ https://pavel-karateev.gitbook.io/intermediate-python/sintaksis/args_and_kwargs
 
 Если мы хотим использовать  *args, **kwargs и формальные параметры в функции, какой будет порядок? А если будут
  параметры со значениями по умолчанию?
+ ОТВЕТ:
+ а) (1. Формальные параметры, 2. *args, 3 **kwargs) 
+ b) (1. Формальные параметры, 2. Параметры со значениями по умолчанию. 3.*args, 4. **kwargs)???(я не уверен)
 
 Напишите функцию print_lists. Она принимает набор порядковых аргументов, каждый из которых является списком. Затем
  следует аргумент how (по умолчанию None), в который передаются аргументы с правилами для печати (например,  sep и end).
  Если правила не переданы, следует напечатать списки с sep=' ' и end='\n'.
 """
-# def print_lists(args : list, how : None):
+def print_lists(*args :list, how=None ):
+    if how == None:
+        how = {'sep' : ' ',
+               'end': '\n'}
+    for arg in args:
+        print(f"{arg}, {how['sep']},{how['end']}")
+
+print_lists([1,2,3], [4,5,6], [7,8,9])
+
 
 
 
@@ -190,23 +201,23 @@ Task 3. Password Generator
 * цифры
 * символы
 """
-password_length = int(input("Длина вашего пароля: ")) # определяем длину пароля
-password = ""
-while password_length != len(password):
-    cap_letter = random.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-    lower_cas_letter = random.choice("abcdefghijklmnopqrstuvwxyz")
-    symbol = random.choice("~!@#$%^&*")
-    number = random.randrange(10)
-
-    password += cap_letter
-    password += lower_cas_letter
-    password += symbol
-    password += str(number)
-
-password_list = list(password)
-random.shuffle(password_list)
-password = ""
-for x in password_list:
-    password += x
-print(password_length)
-print(password)
+# password_length = int(input("Длина вашего пароля: ")) # определяем длину пароля
+# password = ""
+# while password_length != len(password):
+#     cap_letter = random.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+#     lower_cas_letter = random.choice("abcdefghijklmnopqrstuvwxyz")
+#     symbol = random.choice("~!@#$%^&*")
+#     number = random.randrange(10)
+#
+#     password += cap_letter
+#     password += lower_cas_letter
+#     password += symbol
+#     password += str(number)
+#
+# password_list = list(password)
+# random.shuffle(password_list)
+# password = ""
+# for x in password_list:
+#     password += x
+# print(password_length)
+# print(password)
