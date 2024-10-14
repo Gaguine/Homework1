@@ -122,19 +122,14 @@ https://pavel-karateev.gitbook.io/intermediate-python/sintaksis/args_and_kwargs
  следует аргумент how (по умолчанию None), в который передаются аргументы с правилами для печати (например,  sep и end).
  Если правила не переданы, следует напечатать списки с sep=' ' и end='\n'.
 """
-def print_lists(*args :list, how=None ):
-    if how == None:
-        how = {
-            'sep' : ' ',
-            'end' : '\n'
-        }
+def print_lists(*args :list, sep = ' ', end = '\n', **kwargs):
     for arg in args:
         for index, element in enumerate(arg):
             if index < len(arg) - 1:
-                print(element, end=how['sep'])
+                print(element, end=sep)
             else:
-                print(element, end=how['end'])
-print_lists([1,2,3], [4,5,6], [7,8,9])
+                print(element, end=end)
+print_lists([1,2,3], [4,5,6], [7,8,9], sep=',',end=';')
 
 
 
