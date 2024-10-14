@@ -123,12 +123,14 @@ https://pavel-karateev.gitbook.io/intermediate-python/sintaksis/args_and_kwargs
  Если правила не переданы, следует напечатать списки с sep=' ' и end='\n'.
 """
 def print_lists(*args :list, how=None ):
-    if how == None:
-        how = {'sep' : ' ',
-               'end': '\n'}
+    sep = ' '
+    end = '\n'
     for arg in args:
-        print(f"{arg}, {how['sep']},{how['end']}")
-
+        for index, element in enumerate(arg):
+            if index < len(arg) - 1:
+                print(element, end=sep)
+            else:
+                print(element, end=end)
 print_lists([1,2,3], [4,5,6], [7,8,9])
 
 
