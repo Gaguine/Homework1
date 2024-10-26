@@ -52,5 +52,12 @@ def dataset_fetcher(path:str) -> dict:
 path = 'G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers'
 flowers_dic = dataset_fetcher(path)
 json_converter(flowers_dic,path)
+# HW2. Task 1.2
+class FlowersDataset:
+    def __init__(self,json_file_path: str): # provide the object with a dataset property
+      with open(json_file_path, "r", encoding='utf-8') as file:
+          self.data = json.load(file) # read through the json file and store the data as a dictonary.
+    # def get_items(self): not sure how to implement???
+
 
 
