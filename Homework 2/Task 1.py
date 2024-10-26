@@ -20,16 +20,24 @@ Json structure example:
 '''
 
 '''Flower_dic = {'flowers': [{'path': 'lombago.jpg','color':'yellow'},{'path':'lombago2.jpg', 'color':'red'}]} # How it should look like'''
+# Flowers : [] ->{flowertype,color,path}{}{}{} # should I create a flower dictionary for each flower?
 '''flower_dic = {{'path':'', 'type':''}}'''
+flowers_dic = {'flowers': []}
 path_list = []
 type_list = []
-color_list = []
+color_list = [] # it is a list of lists. every list within represents the type of flower
 # Try to open the folders and read the name of the files, and store them.
-x = os.listdir('G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers')
+path = 'G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers'
+x = os.listdir(path)
 # X is a list of strs. We should use the method listdir while iterating through x.
 for flower_type in x:
     type_list.append(flower_type)
     color_list.append(os.listdir(f'G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/{flower_type}'))
 
 # print(os.listdir('G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/rose'))
-print(color_list)
+print(*color_list)
+for color in *color_list:
+    flower_dic = {'path':f'{path}/{flower_type}/{color}',
+                  'color': color,
+                  'type': flower_type}
+    flowers_dic['flowers'].append(flower_dic)
