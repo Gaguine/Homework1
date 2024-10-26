@@ -18,26 +18,27 @@ Json structure example:
     ]
 }
 '''
-
-'''Flower_dic = {'flowers': [{'path': 'lombago.jpg','color':'yellow'},{'path':'lombago2.jpg', 'color':'red'}]} # How it should look like'''
-# Flowers : [] ->{flowertype,color,path}{}{}{} # should I create a flower dictionary for each flower?
-'''flower_dic = {{'path':'', 'type':''}}'''
-flowers_dic = {'flowers': []}
-path_list = []
-type_list = []
-color_list = [] # it is a list of lists. every list within represents the type of flower
-# Try to open the folders and read the name of the files, and store them.
+flowers_dic = {'flowers': []} # initialize essential variables
 path = 'G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers'
-x = os.listdir(path)
-# X is a list of strs. We should use the method listdir while iterating through x.
-for flower_type in x:
-    type_list.append(flower_type)
-    color_list.append(os.listdir(f'G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/{flower_type}'))
 
-# print(os.listdir('G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/rose'))
-print(*color_list)
-for color in *color_list:
-    flower_dic = {'path':f'{path}/{flower_type}/{color}',
-                  'color': color,
-                  'type': flower_type}
-    flowers_dic['flowers'].append(flower_dic)
+type_list = [] # initialize lists to hold types and colors
+color_list = []
+
+x = os.listdir(path)
+for flower_type in x: # collect flower types and colors
+    type_list.append(flower_type)
+    color_list.append(os.listdir(f'{path}/{flower_type}'))
+
+for flower_type, files in zip(type_list, color_list):
+    for file_name in files:
+        # Extract color from the file name using split
+        color = file_name
+
+
+        flower_dic = {'path':f'{path}/{flower_type}/{color}',
+                      'color': color,
+                      'type': flower_type}
+
+        flowers_dic['flowers'].append(flower_dic)
+
+print(flowers_dic)
