@@ -61,8 +61,9 @@ class FlowersDataset:
           self.data = json.load(file) # read through the json file and store the data as a dictonary.
     def get_items(self, properties: dict) -> [list[str], str]:
         output_list=[]
-        if properties in self.data["flowers"]:
-            print("hello!")
+        for flower in self.data['flowers']:
+            if properties in flower:
+                output_list.append(flower['path'])#((((((((((((((((((((((((((
 
 
 json_file_path = f'{path}/flower_data.json'
