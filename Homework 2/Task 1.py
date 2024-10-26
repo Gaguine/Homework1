@@ -62,14 +62,16 @@ class FlowersDataset:
     def get_items(self, properties: dict) -> [list[str], str]:
         output_list=[]
         for flower in self.data['flowers']:
-            if properties in flower:
-                output_list.append(flower['path'])#((((((((((((((((((((((((((
+            for key,value in properties.items():
+                if properties[key] == flower[key] or properties[key] in flower[key]:
+                    output_list.append(flower['path'])
+        return output_list
 
 
 json_file_path = f'{path}/flower_data.json'
 flowers_database = FlowersDataset(json_file_path)
-properties = {"type": "rose"}
-flowers_database.get_items(properties)
+properties = {"color": "red"}
+print(flowers_database.get_items(properties))
 # flower_database.get_items({'type':'rose', 'color': 'red'}) --> flowers: list of dict # Domanda! flowers[0] e uguale al primo elemento??
 #quando ti chiedo coppia, controlla per tutta la lista e ritorna lista dei nomi dei file!!
 
