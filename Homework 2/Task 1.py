@@ -44,15 +44,14 @@ class FlowersDataset:
     def get_items(self, properties: dict) -> [list[str], str]:
         output_list = []
         for flower in self.data['flowers']:
-            for key, value in properties.items():
-                if all(flower.get(key) == value):
-                    output_list.append(flower['path'])
+            if all(flower.get(key) == value for key,value in properties.items()):
+                output_list.append(flower['path'])
         return output_list
 
 
 json_file_path = f'{path}/flower_data.json'
 flowers_database = FlowersDataset(json_file_path)
-properties = {"type":"rose","color": "red"}
+properties = {"type": ["rose", "tulip"], "color": "red"}
 print(flowers_database.get_items(properties))
 
 
