@@ -44,14 +44,14 @@ class FlowersDataset:
     def get_items(self, properties: dict) -> [list[str], str]:
         output_list = []
         for flower in self.data['flowers']:
-            if all(flower.get(key) == value for key,value in properties.items()):
+            if all(flower.get(key) in value for key,value in properties.items()): # if we use == the value expected is not a list, thus the output is empty if value in properties is a list. Use in???
                 output_list.append(flower['path'])
         return output_list
 
 
 json_file_path = f'{path}/flower_data.json'
 flowers_database = FlowersDataset(json_file_path)
-properties = {"type": ["rose", "tulip"], "color": "red"}
+properties = {"type": "tulip", "color": "magenta"}
 print(flowers_database.get_items(properties))
 
-
+# ({"type": ["rose", "tulip"], "color": "red"})
