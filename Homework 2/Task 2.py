@@ -28,5 +28,13 @@ def get_wiki_info(keyword: str, max_num_sentences: int = 10, max_sentence_length
 
 keyword = 'Python'
 r = requests.get(f'https://simple.wikipedia.org/wiki/{keyword}') # Create a response object
-print(r.text) # this prints the response of the server?? and the html file I will later need. What Encoding should I use???
-print(type(r.text))
+soup = BeautifulSoup(r.text, 'html.parser')
+# print(soup.find_all('p')) # This provides the body text that I will need to parse into strings and append into a list.
+for sentence in soup.find_all('p'):
+    sentence = str(sentence.text)
+    if sentence.startswith(keyword): print(sentence)
+# print(soup.find('div', class_='mw-content-ltr mw-parser-output').prettify()) # the get method provides the text information
+# for sentence in soup.get_text():
+#     if sentence.startswith(f"{keyword}"):
+#         print(sentence)
+# Next step should be the starts_with() method??
