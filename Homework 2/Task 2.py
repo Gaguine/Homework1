@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from typing import List, Union
 """
 Implement a function which will retrieve information from https://simple.wikipedia.org.
 It shall request information from https://simple.wikipedia.org/wiki/<keyword> and return a list of sentences. Every returned sentence
@@ -19,34 +20,30 @@ def get_wiki_info(keyword: str, max_num_sentences: int = 10, max_sentence_length
 """
 # Use a variable to store the keyword
 # Use an f string to create the custom URL
-
-# Sentence Requirements:
+"""Use these requirements to create the final function"""
+# Sentence Requirements: =
 # a) Every returned sentence shall begin with the keyword.
 # b) Every sente length shall be less than max sentece lenght
 # b.1) if it is bigger return only the charactes that are within the boundaries
 # c) if the personalised URL does not exist, return an empty list
 
-keyword = 'Python'
-r = requests.get(f'https://simple.wikipedia.org/wiki/{keyword}') # Create a response object
-soup = BeautifulSoup(r.text, 'html.parser')
-output_list = []
-max_num_sentences = 0
-max_sentence_length = 4
-for paragraph in soup.find_all('p'):
-    paragraph = str(paragraph.text)
-    for sentence in paragraph.split('.'):
-        sentence = sentence.strip()
-        if sentence.startswith(keyword) and max_num_sentences != 2:
-            output_list.append(' '.join(sentence.split(' ')[:4]))
-            max_num_sentences +=1
-print(output_list)
-    # if sentence.startswith(keyword) or sentence.startswith(keyword + 's'): # we are close
-    #     print(sentence.split(' ')[:4])
-        # output_list.append(sentence[])
-        # max_num_sentences += 1
 
-# print(soup.find('div', class_='mw-content-ltr mw-parser-output').prettify()) # the get method provides the text information
-# for sentence in soup.get_text():
-#     if sentence.startswith(f"{keyword}"):
-#         print(sentence)
-# Next step should be the starts_with() method??
+def get_wiki_info(keyword: str, max_num_sentences: int = 10, max_sentence_length: int = 10) -> Union[List[str], None]:
+    keyword.replace(" ",'_')
+    request_obj = requests.get(f'https://simple.wikipedia.org/wiki/{str(keyword)}')
+    soup = BeautifulSoup(request_obj.text, 'html.parser')
+    output_list = []
+    counter = 0
+    for paragraph in soup.find_all('p'): # Find all paragraphs in the html file
+        paragraph = str(paragraph.text)
+        for sentence in paragraph.split('.'): # Splint the sentences
+            sentence = sentence.strip()
+            if sentence.startswith(keyword) and counter != max_num_sentences: # check if the sentence starts with <keyword>
+                output_list.append(' '.join(sentence.split(' ')[:max_sentence_length])) # append the sentence as a string
+                counter += 1 # make sure that we stay within the boundaries of max_num_sentences
+    return output_list
+
+keyword = "Neurolinguistic programming"
+n=2
+m=4
+print(get_wiki_info(keyword,max_num_sentences=n,max_sentence_length=m))
