@@ -29,10 +29,22 @@ def get_wiki_info(keyword: str, max_num_sentences: int = 10, max_sentence_length
 keyword = 'Python'
 r = requests.get(f'https://simple.wikipedia.org/wiki/{keyword}') # Create a response object
 soup = BeautifulSoup(r.text, 'html.parser')
-# print(soup.find_all('p')) # This provides the body text that I will need to parse into strings and append into a list.
-for sentence in soup.find_all('p'):
-    sentence = str(sentence.text)
-    if sentence.startswith(keyword): print(sentence)
+output_list = []
+max_num_sentences = 0
+max_sentence_length = 4
+for paragraph in soup.find_all('p'):
+    paragraph = str(paragraph.text)
+    for sentence in paragraph.split('.'):
+        sentence = sentence.strip()
+        if sentence.startswith(keyword) and max_num_sentences != 2:
+            output_list.append(sentence)
+            max_num_sentences +=1
+print(output_list)
+    # if sentence.startswith(keyword) or sentence.startswith(keyword + 's'): # we are close
+    #     print(sentence.split(' ')[:4])
+        # output_list.append(sentence[])
+        # max_num_sentences += 1
+
 # print(soup.find('div', class_='mw-content-ltr mw-parser-output').prettify()) # the get method provides the text information
 # for sentence in soup.get_text():
 #     if sentence.startswith(f"{keyword}"):
