@@ -37,7 +37,7 @@ for paragraph in soup.find_all('p'):
     for sentence in paragraph.split('.'):
         sentence = sentence.strip()
         if sentence.startswith(keyword) and max_num_sentences != 2:
-            output_list.append(sentence)
+            output_list.append(' '.join(sentence.split(' ')[:4]))
             max_num_sentences +=1
 print(output_list)
     # if sentence.startswith(keyword) or sentence.startswith(keyword + 's'): # we are close
