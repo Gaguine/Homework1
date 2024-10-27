@@ -26,6 +26,7 @@ def json_converter(flowers_dic: dict, path : str, file_name = "flower_data.json"
 def dataset_fetcher(path:str) -> dict:
     """creates a dictionary using the provided path"""
     flowers_dic = {'flowers': []}  # initialize output variable
+    rel_path = path.replace('G:/PyCharm Projects/Volgastate_Coding_Course/','')
 
     type_list = []  # initialize lists to hold types and colors
     color_list = []
@@ -37,12 +38,10 @@ def dataset_fetcher(path:str) -> dict:
 
     for flower_type, files in zip(type_list, color_list):
         for file_name in files:
-            # Extract color from the file name using split
-            color = file_name.replace('.jpeg','') # remove .jpeg
-            if flower_type in color:  # unfortunately this line of code does not work((
-                color.replace(flower_type,'')
-            #Create blueprint
-            flower_dic = {'path': f'{path}/{flower_type}/{color}',
+            # Extract color from the file name using replace and strip
+            color = file_name.replace('.jpeg','').replace(flower_type,'').replace("flowers",'').replace("flower",'').replace('_'," ").replace('justanother','').strip()
+            # Create blueprint
+            flower_dic = {'path': f'{rel_path}/{flower_type}/{file_name}',
                           'color': color,
                           'type': flower_type}
             # Store blueprints
@@ -52,8 +51,8 @@ def dataset_fetcher(path:str) -> dict:
 
 
 path = 'G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers'
-# flowers_dic = dataset_fetcher(path)
-# json_converter(flowers_dic,path)
+flowers_dic = dataset_fetcher(path)
+json_converter(flowers_dic,path)
 # HW2. Task 1.2
 class FlowersDataset:
     def __init__(self,json_file_path: str): # provide the object with a dataset property
@@ -68,10 +67,9 @@ class FlowersDataset:
         return output_list
 
 
-json_file_path = f'{path}/flower_data.json'
-flowers_database = FlowersDataset(json_file_path)
-properties = {"color": "red"}
-print(flowers_database.get_items(properties))
-# flower_database.get_items({'type':'rose', 'color': 'red'}) --> flowers: list of dict # Domanda! flowers[0] e uguale al primo elemento??
-#quando ti chiedo coppia, controlla per tutta la lista e ritorna lista dei nomi dei file!!
+# json_file_path = f'{path}/flower_data.json'
+# flowers_database = FlowersDataset(json_file_path)
+# properties = {"color": "red"}
+# print(flowers_database.get_items(properties))
+
 

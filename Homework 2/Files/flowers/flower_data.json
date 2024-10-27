@@ -1,147 +1,147 @@
 {
   "flowers": [
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/daisy/african_daisy_yellow",
-      "color": "african_daisy_yellow",
+      "path": "Homework 2/Files/flowers/daisy/african_daisy_yellow.jpeg",
+      "color": "african  yellow",
       "type": "daisy"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/daisy/another_daisy_pink",
-      "color": "another_daisy_pink",
+      "path": "Homework 2/Files/flowers/daisy/another_daisy_pink.jpeg",
+      "color": "another  pink",
       "type": "daisy"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/daisy/daisy_white",
-      "color": "daisy_white",
+      "path": "Homework 2/Files/flowers/daisy/daisy_white.jpeg",
+      "color": "white",
       "type": "daisy"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/daisy/just_another_daisy_blue",
-      "color": "just_another_daisy_blue",
+      "path": "Homework 2/Files/flowers/daisy/just_another_daisy_blue.jpeg",
+      "color": "just another  blue",
       "type": "daisy"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/peony/black",
+      "path": "Homework 2/Files/flowers/peony/black.jpeg",
       "color": "black",
       "type": "peony"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/peony/flowers_white",
-      "color": "flowers_white",
+      "path": "Homework 2/Files/flowers/peony/flowers_white.jpeg",
+      "color": "white",
       "type": "peony"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/peony/flower_white",
-      "color": "flower_white",
+      "path": "Homework 2/Files/flowers/peony/flower_white.jpeg",
+      "color": "white",
       "type": "peony"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/peony/peony_violet",
-      "color": "peony_violet",
+      "path": "Homework 2/Files/flowers/peony/peony_violet.jpeg",
+      "color": "violet",
       "type": "peony"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/peony/peony_white",
-      "color": "peony_white",
+      "path": "Homework 2/Files/flowers/peony/peony_white.jpeg",
+      "color": "white",
       "type": "peony"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/peony/rose",
+      "path": "Homework 2/Files/flowers/peony/rose.jpeg",
       "color": "rose",
       "type": "peony"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/peony/yellow",
+      "path": "Homework 2/Files/flowers/peony/yellow.jpeg",
       "color": "yellow",
       "type": "peony"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/rose/blue",
+      "path": "Homework 2/Files/flowers/rose/blue.jpeg",
       "color": "blue",
       "type": "rose"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/rose/flower_orange",
-      "color": "flower_orange",
+      "path": "Homework 2/Files/flowers/rose/flower_orange.jpeg",
+      "color": "orange",
       "type": "rose"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/rose/flower_red",
-      "color": "flower_red",
+      "path": "Homework 2/Files/flowers/rose/flower_red.jpeg",
+      "color": "red",
       "type": "rose"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/rose/flower_violet",
-      "color": "flower_violet",
+      "path": "Homework 2/Files/flowers/rose/flower_violet.jpeg",
+      "color": "violet",
       "type": "rose"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/rose/pink",
+      "path": "Homework 2/Files/flowers/rose/pink.jpeg",
       "color": "pink",
       "type": "rose"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/rose/red",
+      "path": "Homework 2/Files/flowers/rose/red.jpeg",
       "color": "red",
       "type": "rose"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/rose/rose_black",
-      "color": "rose_black",
+      "path": "Homework 2/Files/flowers/rose/rose_black.jpeg",
+      "color": "black",
       "type": "rose"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/rose/rose_pink",
-      "color": "rose_pink",
+      "path": "Homework 2/Files/flowers/rose/rose_pink.jpeg",
+      "color": "pink",
       "type": "rose"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/rose/rose_white",
-      "color": "rose_white",
+      "path": "Homework 2/Files/flowers/rose/rose_white.jpeg",
+      "color": "white",
       "type": "rose"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/rose/rose_yellow",
-      "color": "rose_yellow",
+      "path": "Homework 2/Files/flowers/rose/rose_yellow.jpeg",
+      "color": "yellow",
       "type": "rose"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/tulip/dark_dark_violet",
-      "color": "dark_dark_violet",
+      "path": "Homework 2/Files/flowers/tulip/dark_dark_violet.jpeg",
+      "color": "dark dark violet",
       "type": "tulip"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/tulip/dark_violet",
-      "color": "dark_violet",
+      "path": "Homework 2/Files/flowers/tulip/dark_violet.jpeg",
+      "color": "dark violet",
       "type": "tulip"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/tulip/flower_yellow",
-      "color": "flower_yellow",
+      "path": "Homework 2/Files/flowers/tulip/flower_yellow.jpeg",
+      "color": "yellow",
       "type": "tulip"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/tulip/red",
+      "path": "Homework 2/Files/flowers/tulip/red.jpeg",
       "color": "red",
       "type": "tulip"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/tulip/tulip_red",
-      "color": "tulip_red",
+      "path": "Homework 2/Files/flowers/tulip/tulip_red.jpeg",
+      "color": "red",
       "type": "tulip"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/tulip/violet",
+      "path": "Homework 2/Files/flowers/tulip/violet.jpeg",
       "color": "violet",
       "type": "tulip"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/tulip/white",
+      "path": "Homework 2/Files/flowers/tulip/white.jpeg",
       "color": "white",
       "type": "tulip"
     },
     {
-      "path": "G:/PyCharm Projects/Volgastate_Coding_Course/Homework 2/Files/flowers/tulip/yellow",
+      "path": "Homework 2/Files/flowers/tulip/yellow.jpeg",
       "color": "yellow",
       "type": "tulip"
     }
