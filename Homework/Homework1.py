@@ -179,25 +179,31 @@ def str_flipper(s : str, goal : str):
     A prefix of a string s is any leading contiguous substring of s
 """
 def prefix_checker(sentence: str, searchWord: str):
-    if 1 <= len(sentence.lower()) <= 100 and 1 <= searchWord.lower() <= 10:
+
+    if 1 <= len(sentence.lower()) <= 100 and 1 <= len(searchWord.lower()) <= 10:
         sentence_list = []
         check_word = ""
         count = 0
         list_index = []
-        for word in sentence.lower():  # Extract word from the string "sentence" and save the words in a list.
-            if word == " ":
+
+        for ch in sentence.lower():
+            if ch == " ":
                 sentence_list.append(check_word)
-                check_word = "" # Refresh the variable.
+                check_word = ""
             else:
-                check_word += word
+                check_word += ch
+
+        if check_word:
+            sentence_list.append(check_word)
         for i, word in enumerate(sentence_list):
             prefix_in_sentence = (word[0: len(searchWord.lower())])  # compare the first letters(given by the number of letters in check_word) of a word to the check_word.
             if prefix_in_sentence == searchWord.lower():
-                list_index.append([i + 1])  # use a list to store the indexes of the words where the prefix occured, return the first item of this list as metioned in the exercise.
+                list_index.append(i + 1)  # use a list to store the indexes of the words where the prefix occured, return the first item of this list as metioned in the exercise.
                 count = + 1
         if count == 0:
-            return str(-1) # using count we intinerate how many times the if condition worked(if any prefix was found). If none occured we should output "-1".
-        return str(list_index[0]) # trasform index into str, so it looks nice.
+            return int(-1) # using count we intinerate how many times the if condition worked(if any prefix was found). If none occured we should output "-1".
+        return (list_index[0])
+
     else:
         print("Заданные параметры не подходят.")
 
