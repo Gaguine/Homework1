@@ -179,11 +179,13 @@ def str_flipper(s : str, goal : str):
     A prefix of a string s is any leading contiguous substring of s
 """
 def prefix_checker(sentence: str, searchWord: str):
+
     if 1 <= len(sentence.lower()) <= 100 and 1 <= len(searchWord.lower()) <= 10:
         sentence_list = []
         check_word = ""
         count = 0
         list_index = []
+
         for ch in sentence.lower():
             if ch == " ":
                 sentence_list.append(check_word)
@@ -201,6 +203,7 @@ def prefix_checker(sentence: str, searchWord: str):
         if count == 0:
             return int(-1) # using count we intinerate how many times the if condition worked(if any prefix was found). If none occured we should output "-1".
         return (list_index[0])
+
     else:
         print("Заданные параметры не подходят.")
 
