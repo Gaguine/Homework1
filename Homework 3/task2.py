@@ -1,14 +1,25 @@
+from email.policy import default
+
 import numpy as np
+from numpy.ma.core import array, shape
+
 
 #### 1. Create a random vector of size N and find the mean value
 def rand_mean(N: int) -> float:
-    ...
-
-mean_value_of_array_size_10 = rand_mean(10)
+    # N is the size of the vector, meaning that the initial length of the list will be N
+    num_list = []
+    for num in range(N): num_list.append(num) # create a list from the number provided by the user
+    vector = np.array(num_list)
+    return vector.mean()
 
 #### 2. Create a 8x8 matrix and fill it with a checkerboard pattern
 def print_checkerboard():
-    ...
+    list_1 = []
+    for i in range(4*8):
+        list_1.append(0)
+        list_1.append(1)
+    arr_1 = np.array(list_1)
+    print(arr_1.reshape(8,8))
 
 print_checkerboard()
 '''
