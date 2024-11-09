@@ -1,7 +1,8 @@
-import json
 import os
 # from numpy.ma.core import count
 from typing import List
+import math
+
 
 def read_data(path) -> List[str] :
     data = open(path, 'r', encoding='utf-8').read()
@@ -38,21 +39,38 @@ def chapter_frequency(target_word: str, data: List[str]) -> float:
 
     return round(number_of_chapter_with_target_word/len(chapters_list),2) # round the number so it matches the example output
 def term_frequency(target_word: str, chapter_number: int) -> float:
+    """The following function outputs the term frequency of the target_word in a specified chapter.
+    The function passed test outputs 1 and 2. Function failed test for count_in_chapter('мир', 137) == 0.001."""
     data = read_data(path) # this is a list
     tot_num_words_chapter = 0
-    target_word_counter = 0 # these will be used for the output formula
+    target_word_counter = 0
+    chapters_list = chapters_chapters_dict(data) # these will be used for the output formula
 
-    chapters_list = chapters_chapters_dict(data)
     for word in chapters_list[chapter_number]: #check if the target word is the selected chapter
         tot_num_words_chapter +=1
         if word==target_word:
             target_word_counter += 1
     return round(target_word_counter/tot_num_words_chapter,4)
+def get_tf_idf(target_word: str, chapter_number: int) -> float:
+    """This function provides the  term frequency–inverse document frequency of a target word. It also calculates the idf.
+    The function passed all output tests."""
+    data = read_data(path)
+    chapters_list = chapters_chapters_dict(data)
+    tot_chapter_num = len(chapters_list)
+    tot_chapter_num_with_target_word = 0
 
+    for chapter in chapters_list:
+        if target_word in chapter:
+            tot_chapter_num_with_target_word += 1
 
-# path = 'G:\PyCharm Projects\Homework1\Homework 3\war_peace.txt' # absolute path for windows
-path = '/Users/giuseppe/PycharmProjects/Homework1/Homework 3/war_peace.txt' # absolute path for macos
+    idf = math.log(tot_chapter_num/tot_chapter_num_with_target_word)
+    tf = term_frequency(target_word,chapter_number)
+    return round(tf*idf,3) #this should return tf_idf
+
+script_dir = os.path.dirname(__file__) # откуда запускается скрипт. Таким образом скрипт будет работать и на макос без использования абсолютного пути.
+path = os.path.join(script_dir, "war_peace.txt")
+
 data = read_data(path)
-target_word = 'мир'
-chapter_number=137
-print(term_frequency(target_word,chapter_number)) # la funzione non passa il test con la parola 'pace'
+target_word = 'python'
+chapter_number=3
+print(get_tf_idf('дуб', 0))
