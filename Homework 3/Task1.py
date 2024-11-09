@@ -1,5 +1,4 @@
 import os
-# from numpy.ma.core import count
 from typing import List
 import math
 
