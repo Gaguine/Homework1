@@ -46,16 +46,17 @@ def n_largest(n: int) -> np.array:
     return A[largest_num_indices]
     # hint (argpartition)
 
-result = n_largest(5)
-print(result)
-# result.size == 5
+# result = n_largest(5)
+# print(result)
+# # result.size == 5
 
 #### 5. How to compute ((A+B)*(-A/2)) in place (without copy)?
-
+"""I am not sure whether I got the "compute in place" right("""
 def compute_in_place():
     A = np.ones(3)*1
     B = np.ones(3)*2
-
+    return (A+B)*(-A/2)
+print(compute_in_place())
 
 
 
