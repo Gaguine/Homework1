@@ -36,11 +36,18 @@ def min_max_repr():
 #### 4. How to get the n largest values of an array?
 
 def n_largest(n: int) -> np.array:
+    """ larg_list = []
+        larg_list.append(np.partition(A,-n)[-n:])
+        a = np.array(larg_list)""" # solution using np.partition.
     A = np.arange(10000)
     np.random.shuffle(A)
+    largest_num_indices = np.argpartition(A,-n)[-n:] # solution using np.argpartition.
+
+    return A[largest_num_indices]
     # hint (argpartition)
 
 result = n_largest(5)
+print(result)
 # result.size == 5
 
 #### 5. How to compute ((A+B)*(-A/2)) in place (without copy)?
