@@ -1,7 +1,8 @@
 from email.policy import default
+from operator import index
 
 import numpy as np
-from numpy.ma.core import array, shape
+from numpy.ma.core import array, shape, count
 
 
 #### 1. Create a random vector of size N and find the mean value
@@ -14,12 +15,16 @@ def rand_mean(N: int) -> float:
 
 #### 2. Create a 8x8 matrix and fill it with a checkerboard pattern
 def print_checkerboard():
-    list_1 = []
-    for i in range(4*8):
-        list_1.append(0)
-        list_1.append(1)
-    arr_1 = np.array(list_1)
-    print(arr_1.reshape(8,8))
+    arr_1 = np.zeros((8,8),dtype=int)
+    for y in range(arr_1.shape[0]):
+        for x in range(arr_1.shape[1]):
+            if (x % 2 == 0 and y % 2 == 0) or (x % 2 != 0 and y % 2 != 0):
+                arr_1[x, y] = 1
+    print(arr_1)
+        # print(arr_1[y,x]) # cosi otteniamo valore del item dentor arr_1
+
+    #     print(x)
+    # print(arr_1)
 
 print_checkerboard()
 '''
