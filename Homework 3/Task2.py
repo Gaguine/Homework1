@@ -22,22 +22,15 @@ def print_checkerboard():
                 arr_1[x, y] = 1
     print(arr_1)
 
-print_checkerboard()
-'''
-0 1 0 1 0 1 0 1
-1 0 1 0 1 0 1 0
-....
-
-'''
-
 
 #### 3. Print the minimum and maximum representable value for each numpy scalar type
-
+'''https://numpy.org/doc/stable/reference/arrays.scalars.html#arrays-scalars
+https://numpy.org/doc/stable/user/basics.types.html#overflow-errors''' # usage of numpy.iinfo and numpy.finfo
 def min_max_repr():
-    for dtype in [np.int8, np.int32, np.int64]:
-        ...
-    for dtype in [np.float32, np.float64]:
-        ...
+    for dtype in [np.int8, np.int32, np.int64]: # Integer Types
+        print(np.iinfo(dtype))
+    for dtype in [np.float32, np.float64]: # Floating-Point Types
+        print(np.finfo(dtype))
 
 
 #### 4. How to get the n largest values of an array?
