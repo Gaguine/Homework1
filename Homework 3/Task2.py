@@ -18,13 +18,9 @@ def print_checkerboard():
     arr_1 = np.zeros((8,8),dtype=int)
     for y in range(arr_1.shape[0]):
         for x in range(arr_1.shape[1]):
-            if (x % 2 == 0 and y % 2 == 0) or (x % 2 != 0 and y % 2 != 0):
+            if (x % 2 == 0 and y % 2 != 0) or (x % 2 != 0 and y % 2 == 0):
                 arr_1[x, y] = 1
     print(arr_1)
-        # print(arr_1[y,x]) # cosi otteniamo valore del item dentor arr_1
-
-    #     print(x)
-    # print(arr_1)
 
 print_checkerboard()
 '''
