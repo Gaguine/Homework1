@@ -8,18 +8,13 @@ from numpy.ma.core import array, shape, count
 #### 1. Create a random vector of size N and find the mean value
 def rand_mean(N: int) -> float:
     # N is the size of the vector, meaning that the initial length of the list will be N
-    num_list = []
-    for num in range(N): num_list.append(num) # create a list from the number provided by the user
-    vector = np.array(num_list)
-    return vector.mean()
+    return np.random.rand(N).mean()
 
 #### 2. Create a 8x8 matrix and fill it with a checkerboard pattern
 def print_checkerboard():
     arr_1 = np.zeros((8,8),dtype=int)
-    for y in range(arr_1.shape[0]):
-        for x in range(arr_1.shape[1]):
-            if (x % 2 == 0 and y % 2 != 0) or (x % 2 != 0 and y % 2 == 0):
-                arr_1[x, y] = 1
+    arr_1[1::2, ::2] = 1
+    arr_1[::2, 1::2] = 1
     print(arr_1)
 
 
@@ -52,11 +47,16 @@ def n_largest(n: int) -> np.array:
 
 #### 5. How to compute ((A+B)*(-A/2)) in place (without copy)?
 """I am not sure whether I got the "compute in place" right("""
-def compute_in_place():
-    A = np.ones(3)*1
-    B = np.ones(3)*2
-    return (A+B)*(-A/2)
-print(compute_in_place())
+def compute_in_place(A,B):
+    np.add(A, B, out=B)
+    np.divide(A, 2, out=A)
+    np.negative(A, out=A)
+    np.multiply(A, B, out=A)
+    return A
+
+A = np.ones(3)*1
+B = np.ones(3)*2
+print(compute_in_place(A,B))
 
 
 
