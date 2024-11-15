@@ -15,6 +15,7 @@ def word_dictionary(data:list) -> dict:
     for word in data:
         if word not in word_dic:
             word_dic[word] = 1
+            continue
         if word in word_dic:
             word_dic[word] += 1
     return word_dic
@@ -34,7 +35,8 @@ def chapter_frequency(target_word: str, data: List[str]) -> float:
     number_of_chapter_with_target_word = 0
     chapters_list = chapters_chapters_dict(data)
     for chapter in chapters_list:
-        if target_word in chapter: number_of_chapter_with_target_word += 1
+        if target_word in chapter:
+            number_of_chapter_with_target_word += 1
 
     return round(number_of_chapter_with_target_word/len(chapters_list),2) # round the number so it matches the example output
 def term_frequency(target_word: str, chapter_number: int) -> float:
