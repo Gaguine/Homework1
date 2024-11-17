@@ -4,8 +4,6 @@ import pymorphy3
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-
 def file_reader(file_name: str) -> str:
     """The following function reads the contents of a txt file located in the reviews folder and return them as a str. The contents may be assigned to a variable."""
     script_dir = os.path.dirname(__file__)
@@ -34,6 +32,7 @@ def frequency_dictionary_creator(contents: str) -> Dict:
                 frequency_dictionary[normal_form_word][1] = round(frequency_dictionary[normal_form_word][0]/total_num_words, 3)
     return frequency_dictionary
 def create_histogram(*dictionaries: Dict):
+    """The following function creates a histogram, which shows the count for each word contained in the dictionary."""
     for dictionary in dictionaries:
         # Extract words and frequencies from the dictionary
         words = list(dictionary.keys())
@@ -51,8 +50,28 @@ def create_histogram(*dictionaries: Dict):
         plt.xticks(rotation=90)  # Rotate x-axis labels so that words are readable
 
         plt.show()
+def word_selector(positive_dict: Dict,negative_dict:Dict) -> List[str]:
+    """The following function returns a series of lists. The first list contain common words between the dictionaries,
+     the second and third lists contain the uniques words between the dictionaries."""
+    # initialize output variables
+    common_words = []
+    positive_unique = []
+    negative_unique = []
 
+    # Iterate through the first dictionary and compare each word to the second dictionary to find common words.
+    for word,frequency in positive_dict.items():
+        if word in negative_dict:
+            common_words.append(word) # Save common words
+        else:
+            positive_unique.append(word) # If word is not in common, it means it unique for the fist dicitonary
+    for word in negative_dict.keys():
+        if word not in common_words:
+            negative_unique.append(word)
 
+    print(f"Общие слова: {common_words}.\n"
+          f"Уникальные слова в позитивном отзыве: {positive_unique}.\n"
+          f"Уникальные слова в негативном отзыве: {negative_unique}. \n")
+    return common_words,positive_unique,negative_unique
 
 # Store the contents of txt file in variables and use lowercase method and remove the punctuation.
 positive = file_reader('positive').lower().translate(str.maketrans('','',string.punctuation))
@@ -66,4 +85,8 @@ negative = ' '.join(negative.split())
 positive_dict = frequency_dictionary_creator(positive)
 negative_dict = frequency_dictionary_creator(negative)
 
+# create a pop-up window with a histogram for each dictionary
 create_histogram(positive_dict,negative_dict)
+
+# find common and unique words between the dictionaries:
+word_selector(positive_dict,negative_dict)
