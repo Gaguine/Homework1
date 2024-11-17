@@ -1,8 +1,10 @@
 import os, string, re
-from os.path import pathsep
 from typing import Dict, Union, List
-from uu import decode
-import pymorphy3, matplotlib
+import pymorphy3
+import numpy as np
+import matplotlib.pyplot as plt
+
+
 
 def file_reader(file_name: str) -> str:
     """The following function reads the contents of a txt file located in the reviews folder and return them as a str. The contents may be assigned to a variable."""
@@ -23,7 +25,7 @@ def frequency_dictionary_creator(contents: str) -> Dict:
     total_num_words = len(contents.split(" "))
 
     for word in contents.split(' '):
-        if str(morph.parse(word)[0].tag) != "PREP": # Test if the iterated word is a preposition, if it is save it in the dictionary
+        if str(morph.parse(word)[0].tag) != "PREP": # Test if the iterated word is a preposition, if it is, save it in the dictionary
             if word not in frequency_dictionary:
                     normal_form_word = morph.parse(word)[0].normal_form
                     frequency_dictionary[normal_form_word] = [0, 0.0]
@@ -31,6 +33,24 @@ def frequency_dictionary_creator(contents: str) -> Dict:
             if frequency_dictionary[normal_form_word][0] != 0:
                 frequency_dictionary[normal_form_word][1] = round(frequency_dictionary[normal_form_word][0]/total_num_words, 3)
     return frequency_dictionary
+def create_histogram(*dictionaries: Dict):
+    for dictionary in dictionaries:
+        # Extract words and frequencies from the dictionary
+        words = list(dictionary.keys())
+        frequency = [value[1] for value in dictionary.values()]
+
+        """https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html"""
+        plt.figure(figsize=(24, 12))  # Adjust figure size for better readability
+        """https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.bar.html"""
+        plt.bar(words, frequency, color='blue', alpha=0.7)
+
+        # Customize histogram
+        plt.xlabel('Words')
+        plt.ylabel('Frequency')
+        plt.title('Word Frequency in the Review')
+        plt.xticks(rotation=90)  # Rotate x-axis labels so that words are readable
+
+        plt.show()
 
 
 
@@ -46,4 +66,4 @@ negative = ' '.join(negative.split())
 positive_dict = frequency_dictionary_creator(positive)
 negative_dict = frequency_dictionary_creator(negative)
 
-print(negative_dict)
+create_histogram(positive_dict,negative_dict)
