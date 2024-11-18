@@ -1,7 +1,6 @@
 import os, string, re
 from typing import Dict, Union, List
 import pymorphy3
-import numpy as np
 import matplotlib.pyplot as plt
 
 def file_reader(file_name: str) -> str:
@@ -32,7 +31,7 @@ def frequency_dictionary_creator(contents: str) -> Dict:
                 frequency_dictionary[normal_form_word][1] = round(frequency_dictionary[normal_form_word][0]/total_num_words, 3)
     return frequency_dictionary
 def create_histogram(*dictionaries: Dict):
-    """The following function creates a histogram, which shows the count for each word contained in the dictionary."""
+    """The following function creates a histogram, which shows the TF for each word contained in the dictionary."""
     for dictionary in dictionaries:
         # Extract words and frequencies from the dictionary
         words = list(dictionary.keys())
