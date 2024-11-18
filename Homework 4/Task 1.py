@@ -16,12 +16,12 @@ def frequency_dictionary_creator(contents: str) -> Dict:
     """The following function creates a dictionary from a string. The function sorts the contents of the str,
     transforming the words into their "normal form", and check whether the word is a preposition.The dictionary contains
      the word, the number of times, it appeared in the text and its respective TF. Prepositions are not stored in the dictionary."""
-
+    # Initialize variables
     morph = pymorphy3.MorphAnalyzer()
     frequency_dictionary = {}
     total_num_words = len(contents.split(" "))
 
-    for word in contents.split(' '):
+    for word in contents.split(' '): # Iterate through the text
         if str(morph.parse(word)[0].tag) != "PREP": # Test if the iterated word is a preposition, if it is, save it in the dictionary
             if word not in frequency_dictionary:
                     normal_form_word = morph.parse(word)[0].normal_form
@@ -29,6 +29,7 @@ def frequency_dictionary_creator(contents: str) -> Dict:
             frequency_dictionary[normal_form_word][0] +=1
             if frequency_dictionary[normal_form_word][0] != 0:
                 frequency_dictionary[normal_form_word][1] = round(frequency_dictionary[normal_form_word][0]/total_num_words, 3)
+
     return frequency_dictionary
 def create_histogram(*dictionaries: Dict):
     """The following function creates a histogram, which shows the TF for each word contained in the dictionary."""
@@ -50,8 +51,8 @@ def create_histogram(*dictionaries: Dict):
 
         plt.show()
 def word_selector(positive_dict: Dict,negative_dict:Dict) -> List[str]:
-    """The following function returns a series of lists. The first list contain common words between the dictionaries,
-     the second and third lists contain the uniques words between the dictionaries."""
+    """The following function returns a series of lists. The first list contains common words between the dictionaries,
+     the second and third lists contain the unique words of the dictionaries."""
     # initialize output variables
     common_words = []
     positive_unique = []
@@ -62,7 +63,7 @@ def word_selector(positive_dict: Dict,negative_dict:Dict) -> List[str]:
         if word in negative_dict:
             common_words.append(word) # Save common words
         else:
-            positive_unique.append(word) # If word is not in common, it means it unique for the fist dicitonary
+            positive_unique.append(word) # If word is not in common, it means it is unique for the fist dictionary
     for word in negative_dict.keys():
         if word not in common_words:
             negative_unique.append(word)
