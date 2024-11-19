@@ -1,7 +1,7 @@
 import pandas as pd
 import os
-
-from pandas.core.interchange.dataframe_protocol import DataFrame
+from pandas import DataFrame
+from typing import Union
 
 
 # Task 1
@@ -23,8 +23,8 @@ print(create_companyDF(income,expenses,years))
 script_dir = os.path.dirname(__file__)
 melb_data = pd.read_csv(f'{script_dir}/pandas_data.csv', sep=',')
 
-print(f"Цена объекта под индексом 15 :{melb_data['Price'][16]}")
-print(f"Объект под индексом 90 был продан в: {melb_data['Date'][91]}")
+print(f"Цена объекта под индексом 15 :{melb_data.iloc[15].Price}")
+print(f"Объект под индексом 90 был продан в: {melb_data.iloc[90].Date}")
 
 
 # Task 3
@@ -36,13 +36,12 @@ print(f" Риелтор Nelson продал {len(Nelson_3_mil)} объектов
 
 
 # Task 4
-def delete_columns(df:DataFrame,col:list):
-    for key in col:
-        if key in df:
-            df = df.drop(key, axis=1)
-        else:
-            return None
-    return df
+def delete_columns(df, col=[]) -> Union[pd.DataFrame, None]:
+    try:
+        return df.drop(col, axis=1, inplace=False)
+    except KeyError:
+        return None
+
 
 df = melb_data
 col = ['Suburb',"Address"]
